@@ -10,6 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec2f;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -77,7 +78,7 @@ public class PlayerProperties extends BaseProperties {
     }
 
     public PlayerProperties runCommands(String[] commands) {
-        this.commands.addAll(List.of(commands));
+        this.commands.addAll(Arrays.asList(commands));
         return this;
     }
 

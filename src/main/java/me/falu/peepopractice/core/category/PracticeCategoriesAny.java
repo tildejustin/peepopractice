@@ -37,7 +37,6 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @SuppressWarnings("UnusedDeclaration")
 public class PracticeCategoriesAny {
@@ -150,7 +149,7 @@ public class PracticeCategoriesAny {
                                     }
                                 }
                             }
-                            lastPos = lastPos.add(random.nextInt(100, 200) * mx, 0, random.nextInt(100, 200) * mz);
+                            lastPos = lastPos.add((random.nextInt(100) + 100) * mx, 0, (random.nextInt(100) + 100) * mz);
                         }
                     })
             ).setWorldProperties(new WorldProperties()
@@ -215,7 +214,7 @@ public class PracticeCategoriesAny {
                         if (spawnLocation != null && spawnLocation.equals(PracticeTypes.SpawnLocationType.TERRAIN)) {
                             int mx = random.nextBoolean() ? 1 : -1;
                             int mz = random.nextBoolean() ? 1 : -1;
-                            return new ChunkPos(random.nextInt(3, 4) * mx, random.nextInt(3, 4) * mz);
+                            return new ChunkPos((random.nextInt(1) + 3) * mx, (random.nextInt(1) + 3) * mz);
                         }
                         return new ChunkPos(0, 0);
                     })
@@ -261,7 +260,7 @@ public class PracticeCategoriesAny {
                     .setGeneratable(false)
             )
             .setPlayerProperties(new PlayerProperties()
-                    .setSpawnPos((category, random, world) -> CustomPortalForcer.getPortalPosition(new BlockPos(random.nextInt(5, 15) * (random.nextBoolean() ? -1 : 1), 64, random.nextInt(5, 15) * (random.nextBoolean() ? -1 : 1)), world))
+                    .setSpawnPos((category, random, world) -> CustomPortalForcer.getPortalPosition(new BlockPos((random.nextInt(10) + 5) * (random.nextBoolean() ? -1 : 1), 64, (random.nextInt(10) + 5) * (random.nextBoolean() ? -1 : 1)), world))
                     .addPotionEffect(FortressPreset.FIRE_RESISTANCE_EFFECT)
             )
             .setWorldProperties(new WorldProperties()
@@ -345,8 +344,8 @@ public class PracticeCategoriesAny {
             .setPlayerProperties(new PlayerProperties()
                     .setSpawnPos((category, random, world) -> {
                         PracticeTypes.StrongholdDistanceType distanceType = PracticeTypes.StrongholdDistanceType.fromLabel(CategoryPreference.getValue(category, "stronghold_distance"));
-                        int max = Objects.requireNonNullElse(distanceType, PracticeTypes.StrongholdDistanceType.AVERAGE).getMax();
-                        int min = Objects.requireNonNullElse(distanceType, PracticeTypes.StrongholdDistanceType.AVERAGE).getMin();
+                        int max = (distanceType != null ? distanceType : PracticeTypes.StrongholdDistanceType.AVERAGE).getMax();
+                        int min = (distanceType != null ? distanceType : PracticeTypes.StrongholdDistanceType.AVERAGE).getMin();
                         ChunkGenerator chunkGenerator = world.getChunkManager().getChunkGenerator();
                         chunkGenerator.method_28509();
                         List<ChunkPos> strongholds = chunkGenerator.field_24749;
@@ -402,7 +401,7 @@ public class PracticeCategoriesAny {
                     .setChunkPos(new ChunkPos(0, 0))
                     .setOrientation(Direction.SOUTH)
                     .setGeneratable(true)
-                    .setStructureTopY((category, random, world) -> random.nextInt(40, 55))
+                    .setStructureTopY((category, random, world) -> random.nextInt(15) + 40)
             )
             .setPlayerProperties(new PlayerProperties()
                     .setSpawnPos((category, random, world) -> {

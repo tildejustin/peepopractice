@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -47,7 +48,7 @@ public class CategoryPreference {
     @SuppressWarnings("unused")
     public CategoryPreference setChoices(String[] choices) {
         this.choices.clear();
-        this.choices.addAll(List.of(choices));
+        this.choices.addAll(Arrays.asList(choices));
         return this;
     }
 

@@ -48,7 +48,7 @@ public class BastionPreset {
                 if (type != null) {
                     return new Vec2f(type.angle, 0.0F);
                 }
-            } else { return new Vec2f(random.nextFloat(360.0F) - 180.0F, 0.0F); }
+            } else { return new Vec2f((random.nextFloat() * 360.0F) - 180.0F, 0.0F); }
         }
         throw new NotInitializedException();
     };

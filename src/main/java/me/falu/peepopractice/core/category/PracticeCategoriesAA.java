@@ -23,7 +23,7 @@ public class PracticeCategoriesAA {
     public static final PracticeCategory UNEASY_ALLIANCE_SPLIT = new PracticeCategory(true)
             .setId("uneasy_alliance_split")
             .setPlayerProperties(new PlayerProperties()
-                    .setSpawnPos((category, random, world) -> CustomPortalForcer.getPortalPosition(new BlockPos(random.nextInt(50, 250) * (random.nextBoolean() ? -1 : 1), 64, random.nextInt(50, 250) * (random.nextBoolean() ? -1 : 1)), world))
+                    .setSpawnPos((category, random, world) -> CustomPortalForcer.getPortalPosition(new BlockPos((random.nextInt(200) + 50) * (random.nextBoolean() ? -1 : 1), 64, (random.nextInt(200) + 50) * (random.nextBoolean() ? -1 : 1)), world))
             )
             .setWorldProperties(new WorldProperties()
                     .setWorldRegistryKey(World.NETHER)

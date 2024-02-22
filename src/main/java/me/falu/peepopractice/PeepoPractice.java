@@ -183,7 +183,7 @@ public class PeepoPractice implements ModInitializer {
     }
 
     public static PracticeCategory getNextCategory() {
-        List<PracticeCategory> categories = new ArrayList<>(List.copyOf(PracticeCategoriesAny.ALL));
+        List<PracticeCategory> categories = new ArrayList<>(PracticeCategoriesAny.ALL);
         categories.removeIf(PracticeCategory::isFillerCategory);
         int index = categories.indexOf(PeepoPractice.CATEGORY);
         if (categories.size() - 1 >= index + 1) {

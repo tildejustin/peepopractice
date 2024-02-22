@@ -13,7 +13,7 @@ import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class CategoryPreferencesScreen extends Screen {
     private final Screen parent;
@@ -27,7 +27,7 @@ public class CategoryPreferencesScreen extends Screen {
 
     private LiteralText getFormattedText(CategoryPreference preference, String currentValue) {
         String add = "";
-        boolean isBoolValue = List.of(PracticeCategoryUtils.BOOLEAN_LIST).contains(currentValue);
+        boolean isBoolValue = Arrays.asList(PracticeCategoryUtils.BOOLEAN_LIST).contains(currentValue);
         if (isBoolValue) {
             add += PracticeCategoryUtils.parseBoolean(currentValue) ? Formatting.GREEN : Formatting.RED;
         } else if (currentValue.equals(PracticeCategoryUtils.RANDOM)) {
